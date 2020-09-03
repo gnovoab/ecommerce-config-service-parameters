@@ -1,0 +1,63 @@
+info:
+  description: Global file configuration
+
+
+#Actuactor configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+
+---
+
+spring:
+  profiles: dev, sandbox, uat
+
+  security:
+    user:
+      name: admin
+      password: admin
+
+  boot:
+    admin:
+      client:
+        url: http://admin-service.common.svc.cluster.local
+
+
+
+#Eureka configuration
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://eureka-service.common.svc.cluster.local/eureka
+  instance:
+    preferIpAddress: true
+
+
+
+#Oauth 2 auth endpoint
+security:
+  oauth2:
+    client:
+      client-id: clientTest
+      client-secret: clientSecret
+      access-token-uri: http://authorization-service/api/v1/oauth/token
+      user-authorization-uri: http://authorization-service/api/v1/oauth/authorize
+      scope: read write
+    resource:
+      user-info-uri: http://authorization-service/api/v1/users/me

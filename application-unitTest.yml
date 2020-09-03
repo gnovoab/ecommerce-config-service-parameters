@@ -1,0 +1,19 @@
+security:
+  oauth2:
+    client:
+      client-id: clientTest
+      client-secret: clientSecret
+      access-token-uri: http://localhost:9999/api/v1/oauth/token
+      user-authorization-uri: http://localhost:9999/api/v1/oauth/authorize
+      scope: read write
+    resource:
+      user-info-uri: http://localhost:9999/api/v1/users/me
+
+
+
+test:
+  oauth2:
+    client-id-sample: clientTest
+    client-secret-sample: clientSecret
+    user-username-sample: integrationTest
+    user-password-sample: integrationTest
