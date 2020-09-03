@@ -44,7 +44,7 @@ eureka:
   client:
     enabled: true
     serviceUrl:
-      defaultZone: http://eureka-service.common.svc.cluster.local/eureka
+      defaultZone: http://dicovery-service.common.svc.cluster.local/eureka
   instance:
     preferIpAddress: true
 
