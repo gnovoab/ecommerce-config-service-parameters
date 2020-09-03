@@ -1,5 +1,4 @@
 spring:
-
   security:
     user:
       name: admin
@@ -25,3 +24,8 @@ security:
       scope: read write
     resource:
       user-info-uri: http://localhost:9999/api/v1/users/me
+
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
